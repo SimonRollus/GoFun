@@ -33,7 +33,6 @@ public class GameDescriptionController {
         this.translationService = translationService;
     }
 
-
     @RequestMapping(value = "{id}",method = RequestMethod.GET)
     public String gameDescription(Model model, @PathVariable Integer id, Locale locale){
         ArrayList<Translation> categoriesTranslations = translationService.getCategoriesTranslation(locale.getLanguage());
