@@ -3,10 +3,14 @@ package com.spring.henallux.firstSpringProject.dataAccess.dao;
 
 import com.spring.henallux.firstSpringProject.dataAccess.dao.GameDAO;
 import com.spring.henallux.firstSpringProject.dataAccess.entity.CategoryEntity;
+import com.spring.henallux.firstSpringProject.dataAccess.entity.DiscountEntity;
 import com.spring.henallux.firstSpringProject.dataAccess.entity.GameEntity;
 import com.spring.henallux.firstSpringProject.dataAccess.repository.GameRepository;
+import com.spring.henallux.firstSpringProject.dataAccess.util.ProviderConverter;
 import com.spring.henallux.firstSpringProject.model.Category;
+import com.spring.henallux.firstSpringProject.model.Discount;
 import com.spring.henallux.firstSpringProject.model.Game;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -20,12 +24,17 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(MockitoJUnitRunner.class)
 @SpringBootTest
-class GameDAOTest {
+public class GameDAOTest {
 
     private GameDAO gameDAO;
 
     @Mock
     private GameRepository gameRepository;
+
+    @Before
+    public void setUp() throws Exception{
+        gameDAO = new GameDAO(gameRepository,new ProviderConverter());
+    }
 
     @Test
     public void testGameDAO() {
@@ -39,11 +48,8 @@ class GameDAOTest {
 
         gameEntity.setDiscount(null);
 
-        CategoryEntity categoryEntity = new CategoryEntity();
-
-        categoryEntity.setCategory_id(1);
-
-        gameEntity.setCategory(categoryEntity);
+        gameEntity.setCategory(new CategoryEntity());
+        gameEntity.getCategory().setCategory_id(1);
 
         gameEntity.setImage("games/categorie-deduction/jeu2.jpg");
         gameEntity.setMinimum_age(12);
@@ -61,13 +67,10 @@ class GameDAOTest {
         game.setDescription("Suis la piste et trouve le meurtrier");
         game.setPrice(25F);
 
-        game.setDiscount(null);
+        game.setDiscount(new Discount());
 
-        Category category = new Category();
-
-        category.setCategory_id(1);
-
-        game.setCategory(category);
+        game.setCategory(new Category());
+        game.getCategory().setCategory_id(1);
 
         game.setImage("games/categorie-deduction/jeu2.jpg");
         game.setMinimum_age(12);
@@ -75,6 +78,9 @@ class GameDAOTest {
         game.setMaximum_number_players(8);
 
         expectedResults.add(game);
+
+        System.out.println(gameDAO.getAllGames().toString());
+
         assertThat(gameDAO.getAllGames()).usingRecursiveComparison().ignoringCollectionOrder().isEqualTo(expectedResults);
 
 

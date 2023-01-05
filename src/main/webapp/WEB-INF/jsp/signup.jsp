@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: loucaspignataro
-  Date: 05/12/2022
-  Time: 14:51
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="include/importTags.jsp"%>
 
@@ -16,9 +9,9 @@
 <div class="mx-28 my-28">
     <h2 class="mt-3 text-center text-3xl font-bold tracking-tight text-gray-900">Sign up</h2>
     <div class="md:col-span-2 md:mt-3">
-            <form:form id="inscription"
+            <form:form id="signup"
             method="post"
-            action="/boardgame/inscription"
+            action="/boardgame/signup"
             modelAttribute="currentUser">
 
                 <div class="overflow-hidden shadow sm:rounded-md">
@@ -62,8 +55,9 @@
 
                             <div class="col-span-6">
                                 <form:label path="password" class="block text-sm font-medium text-gray-700">Password</form:label>
-                                <form:input path="password" required="required" autocomplete="given-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"></form:input>
-                            </div>
+                                <form:password path="password" required="required" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"></form:password>
+                            </div
+
                         </div>
                     </div>
                     <p>${customerExists}</p>

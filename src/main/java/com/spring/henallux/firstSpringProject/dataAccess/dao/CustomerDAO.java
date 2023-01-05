@@ -22,7 +22,7 @@ public class CustomerDAO  implements CustomerDataAccess{
     }
 
     @Override
-    public Customer findByUserName(String username) {
+    public Customer findByUsername(String username) {
         CustomerEntity customerEntity = customerRepository.findByUsername(username);
         if(customerEntity == null)
             return null;

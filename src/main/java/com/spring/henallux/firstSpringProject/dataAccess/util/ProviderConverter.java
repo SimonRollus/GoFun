@@ -24,12 +24,14 @@ public class ProviderConverter {
     //DISCOUNT
     public Discount discountEntityToDiscountModel(DiscountEntity discountEntity){
         Discount discount = new Discount();
+
         if(discountEntity != null){
             discount.setDiscount_id(discountEntity.getDiscount_id());
             discount.setPercentage_discount(discountEntity.getPercentage_discount());
             discount.setStart_date(discountEntity.getStart_date());
             discount.setEnd_date(discountEntity.getEnd_date());
         }
+
         return discount;
     }
 

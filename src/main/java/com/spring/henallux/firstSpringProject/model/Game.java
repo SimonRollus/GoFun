@@ -119,4 +119,22 @@ public class Game {
     public void setPrice_with_discount(Float price_with_discount) {
         this.price_with_discount = price_with_discount;
     }
+
+    // toString
+    @Override
+    public String toString() {
+        return "Game{" +
+                "game_id=" + game_id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", discount=" + discount +
+                ", category=" + category +
+                ", image='" + image + '\'' +
+                ", minimum_age=" + minimum_age +
+                ", minimum_number_players=" + minimum_number_players +
+                ", maximum_number_players=" + maximum_number_players +
+                ", price_with_discount=" + price_with_discount +
+                '}';
+    }
 }

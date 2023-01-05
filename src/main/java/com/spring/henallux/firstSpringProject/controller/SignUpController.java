@@ -18,17 +18,17 @@ import java.util.Locale;
 
 
 @Controller
-@RequestMapping(value="/inscription")
+@RequestMapping(value="/signup")
 @SessionAttributes({Constants.CURRENT_USER})
 
-public class InscriptionController {
+public class SignUpController {
 
     private CustomerService customerService;
 
     private MessageSource messageSource;
 
     @Autowired
-    public InscriptionController(CustomerService customerService, MessageSource messageSource) {
+    public SignUpController(CustomerService customerService, MessageSource messageSource) {
         this.customerService = customerService;
         this.messageSource = messageSource;
     }
@@ -39,9 +39,9 @@ public class InscriptionController {
     }
 
     @RequestMapping (method = RequestMethod.GET)
-    public String userInscription (Model model) {
-        model.addAttribute("inscriptionForm", new Customer());
-        return "integrated:inscription";
+    public String userSignUp (Model model) {
+        model.addAttribute("signupForm", new Customer());
+        return "integrated:signup";
     }
 
     @RequestMapping (method = RequestMethod.POST)
@@ -52,11 +52,11 @@ public class InscriptionController {
                 return "redirect:/home";
             }else{
                 model.addAttribute("customerExists", messageSource.getMessage("customerAlreadyExist", new Object[0], locale));
-                return "integrated:inscription";
+                return "integrated:signup";
             }
         }
         model.addAttribute("errors",errors);
-        return "integrated:inscription";
+        return "integrated:signup";
     }
 
 

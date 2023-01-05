@@ -8,6 +8,7 @@ import com.spring.henallux.firstSpringProject.dataAccess.util.ProviderConverter;
 import com.spring.henallux.firstSpringProject.model.Language;
 import com.spring.henallux.firstSpringProject.model.Translation;
 import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -39,9 +40,9 @@ class TranslationDAOTest {
     @Mock
     private ProviderConverter providerConverter;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
-        translationDAO = new TranslationDAO(translationRepository, new ProviderConverter());
+        this.translationDAO = new TranslationDAO(translationRepository, new ProviderConverter());
     }
 
     public ArrayList<TranslationEntity> mockedTranslationEntities() {
@@ -275,7 +276,7 @@ class TranslationDAOTest {
         assertEquals(expectedCategory2,translation2.isPresent()? translation2.get().getLabel():"");
         assertEquals(expectedCategory3,translation3.isPresent()?translation3.get().getLabel():"");
         assertEquals(expectedCategory4,translation4.isPresent()?translation4.get().getLabel():"");
-        assertEquals(expectedCategory5,translation5.isPresent()?translation4.get().getLabel():"");
+        assertEquals(expectedCategory5,translation5.isPresent()?translation5.get().getLabel():"");
     }
 
     @Test
@@ -305,6 +306,6 @@ class TranslationDAOTest {
         assertEquals(expectedCategory2,translation2.isPresent()? translation2.get().getLabel():"");
         assertEquals(expectedCategory3,translation3.isPresent()?translation3.get().getLabel():"");
         assertEquals(expectedCategory4,translation4.isPresent()?translation4.get().getLabel():"");
-        assertEquals(expectedCategory5,translation5.isPresent()?translation4.get().getLabel():"");
+        assertEquals(expectedCategory5,translation5.isPresent()?translation5.get().getLabel():"");
     }
 }

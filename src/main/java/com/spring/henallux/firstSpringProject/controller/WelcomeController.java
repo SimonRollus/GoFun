@@ -21,14 +21,11 @@ import java.util.Locale;
 @RequestMapping(value="/home")
 public class WelcomeController {
 
-
     private GameService gameService;
 
     private DiscountService discountService;
 
-
     private TranslationService translationService;
-
 
     @Autowired
     public WelcomeController(GameService gameService, DiscountService discountService, TranslationService translationService) {
@@ -36,9 +33,6 @@ public class WelcomeController {
         this.discountService = discountService;
         this.translationService = translationService;
     }
-
-
-
 
     @RequestMapping (method = RequestMethod.GET)
     public String home (Model model, Locale locale) {

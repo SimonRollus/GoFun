@@ -26,7 +26,7 @@
             <c:forEach items="${gamesCategoryId}" var="game">
                 <div class="group relative">
                     <div class="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
-                        <img src='<spring:url value="/images/${game.getImage()}"/>' class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+                        <img src='<spring:url value="/images/${game.getImage()}"/>' class="h-full w-full object-cover object-center lg:h-full lg:w-full" loading="lazy">
                     </div>
                     <div class="mt-4 flex justify-between">
                         <div>

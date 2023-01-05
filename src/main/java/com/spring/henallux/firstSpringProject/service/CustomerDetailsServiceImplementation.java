@@ -15,7 +15,6 @@ public class CustomerDetailsServiceImplementation implements UserDetailsService 
 
     private CustomerDataAccess customerDAO;
 
-
     @Autowired
     public CustomerDetailsServiceImplementation(CustomerDataAccess customerDAO) {
         this.customerDAO = customerDAO;
@@ -23,7 +22,7 @@ public class CustomerDetailsServiceImplementation implements UserDetailsService 
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Customer customer = customerDAO.findByUserName(username);
+        Customer customer = customerDAO.findByUsername(username);
         if(customer != null){
             return customer;
         }
