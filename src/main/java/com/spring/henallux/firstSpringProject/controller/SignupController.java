@@ -47,6 +47,8 @@ public class SignupController {
     @RequestMapping (method = RequestMethod.POST)
     public String postUser (Model model, @ModelAttribute(value = Constants.CURRENT_USER) @Valid Customer customer, final BindingResult errors, Locale locale){
 
+        System.out.println(errors);
+
         if(errors.hasErrors()){
             model.addAttribute("errors",errors);
             return "integrated:signup";
