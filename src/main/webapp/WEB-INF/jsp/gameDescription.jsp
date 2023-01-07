@@ -2,13 +2,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="include/importTags.jsp"%>
 
-<html>
-<head>
-</head>
 <div style="text-align: center">
     <a href="<spring:url value='/home'/>" class="btn btn-ghost"><spring:message code="allgames"/></a>
     <c:forEach items="${categories}" var="category">
-        <a href="<spring:url value="/category/${category.getCategory().getCategory_id()}"/>" class="btn btn-ghost">${category.getLabel()}</a>
+        <a href="<spring:url value="/category/${category.getCategory().getCategoryID()}"/>" class="btn btn-ghost">${category.getLabel()}</a>
     </c:forEach>
 </div>
 <body>
@@ -41,7 +38,7 @@
                 <h2 class="sr-only">Product information</h2>
                 <c:if test="${game.isOnDiscount()}">
                 <p class="text-3xl tracking-tight text-red-500 line-through">${game.getPrice()}0&euro;</p>
-                <p class="text-3xl tracking-tight text-gray-900">${game.getPrice_with_discount()}&euro;</p>
+                <p class="text-3xl tracking-tight text-gray-900">${game.getPriceWithDiscount()}&euro;</p>
                 </c:if>
                 <c:if test="${!game.isOnDiscount()}">
                     <p class="text-3xl tracking-tight text-gray-900">${game.getPrice()}&euro;</p>
@@ -55,18 +52,18 @@
                     <!-- Quantity -->
                     <div class="mt-10">
                         <div class="flex items-center justify-between">
-                            <form:label path="quantity"><h3 class="text-sm font-medium text-gray-900">Quantite</h3></form:label>
+                            <form:label path="quantity"><h3 class="text-sm font-medium text-gray-900"><spring:message code="quantity"/></h3></form:label>
                         </div>
 
                         <fieldset class="mt-4">
                             <div class="grid grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4">
                                 <!-- Active: "ring-2 ring-indigo-500" -->
                                 <form:input type="number" min="1" max="99" value="1" path="quantity"></form:input>
-                                <form:input type="hidden" value="${game.getGameId()}" path="game_id"></form:input>
+                                <form:input type="hidden" value="${game.getGameID()}" path="gameID"></form:input>
                             </div>
                         </fieldset>
                     </div>
-                    <form:button type="submit" class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-blue-600 py-3 px-8 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Ajouter au panier</form:button>
+                    <form:button type="submit" class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-blue-600 py-3 px-8 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"><spring:message code="addCart"/></form:button>
                 </form>
                 </form:form>
             </div>
@@ -85,11 +82,11 @@
                     <h3 class="text-sm font-medium text-gray-900">Informations</h3>
                     <div class="mt-4">
                         <ul role="list" class="list-disc space-y-2 pl-4 text-sm">
-                            <li class="text-gray-400"><span class="text-gray-600">Age minimum : ${game.getMinimum_age()}</span></li>
+                            <li class="text-gray-400"><span class="text-gray-600"><spring:message code="minimumAge"/> : ${game.getMinimumAge()}</span></li>
 
-                            <li class="text-gray-400"><span class="text-gray-600">Nombre de joueurs minimum : ${game.getMinimum_number_players()}</span></li>
+                            <li class="text-gray-400"><span class="text-gray-600"><spring:message code="numberMinPlayer"/> : ${game.getMinimumNumberPlayers()}</span></li>
 
-                            <li class="text-gray-400"><span class="text-gray-600">Nombre de joueurs maximum : ${game.getMaximum_number_players()}</span></li>
+                            <li class="text-gray-400"><span class="text-gray-600"><spring:message code="numberMaxPlayer"/> ${game.getMaximumNumberPlayers()}</span></li>
                         </ul>
                     </div>
                 </div>
@@ -98,6 +95,3 @@
     </div>
 </div>
 
-
-</body>
-</html>

@@ -9,7 +9,7 @@ import org.springframework.data.repository.query.Param;
 public interface OrderRepository extends JpaRepository<OrderEntity, Integer> {
 
     @Modifying
-    @Query("UPDATE OrderEntity o set o.isOrderPaid = true where o.order_id = :order_id")
-    void setOrderPaid(@Param("order_id")Integer order_id);
+    @Query("UPDATE OrderEntity o set o.isOrderPaid = true where o.orderID =: order_id")
+    void setOrderPaid(@Param("order_id")Integer orderID);
 
 }

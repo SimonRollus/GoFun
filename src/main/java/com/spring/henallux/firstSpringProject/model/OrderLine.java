@@ -6,10 +6,12 @@ public class OrderLine {
 
     @NotNull
     @Min(value = 1)
-    private Integer order_line_id;
+    private Integer orderLineID;
+
     @NotNull
     @Min(value = 1)
-    private Float real_price;
+    private Float realPrice;
+
     @NotNull
     @Min(value = 1)
     private Integer quantity;
@@ -18,22 +20,23 @@ public class OrderLine {
 
     private Game game;
 
-    public OrderLine(Integer order_line_id, Float real_price, Integer quantity, Order order, Game game){
+    public OrderLine(Integer orderLineID, Float realPrice, Integer quantity, Order order, Game game){
         setOrder(order);
-        setOrder_line_id(order_line_id);
-        setReal_price(real_price);
+        setOrderLineID(orderLineID);
+        setRealPrice(realPrice);
         setGame(game);
         setQuantity(quantity);
     }
+
     public OrderLine() {
     }
 
-    public Integer getOrder_line_id() {
-        return order_line_id;
+    public Integer getOrderLineID() {
+        return orderLineID;
     }
 
-    public Float getReal_price() {
-        return real_price;
+    public Float getRealPrice() {
+        return realPrice;
     }
 
     public Integer getQuantity() {
@@ -49,15 +52,15 @@ public class OrderLine {
     }
 
     public float getSubTotalPrice(){
-        return this.real_price * this.quantity;
+        return this.realPrice * this.quantity;
     }
 
-    public void setOrder_line_id(Integer order_line_id) {
-        this.order_line_id = order_line_id;
+    public void setOrderLineID(Integer orderLineID) {
+        this.orderLineID = orderLineID;
     }
 
-    public void setReal_price(Float real_price) {
-        this.real_price = real_price;
+    public void setRealPrice(Float realPrice) {
+        this.realPrice = realPrice;
     }
 
     public void setQuantity(Integer quantity) {

@@ -6,6 +6,6 @@ import java.util.ArrayList;
 
 public interface GameDataAccess {
     public ArrayList<Game> getAllGames();
-    public ArrayList<Game> getAllGamesByCategoryId(Integer category_id);
-    public Game getGameById(Integer game_id);
+    public ArrayList<Game> getAllGamesByCategoryID(Integer categoryID);
+    public Game getGameByID(Integer gameID);
 }

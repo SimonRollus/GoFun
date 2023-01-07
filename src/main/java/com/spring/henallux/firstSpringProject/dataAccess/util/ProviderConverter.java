@@ -11,13 +11,13 @@ public class ProviderConverter {
     //CATEGORY
     public Category categoryEntityToCategoryModel(CategoryEntity categoryEntity){
         Category category = new Category();
-        category.setCategory_id(categoryEntity.getCategory_id());
+        category.setCategoryID(categoryEntity.getCategoryID());
         return category;
     }
 
     public CategoryEntity categoryModelToCategoryEntity(Category category){
         CategoryEntity categoryEntity = new CategoryEntity();
-        categoryEntity.setCategory_id(category.getCategory_id());
+        categoryEntity.setCategoryID(category.getCategoryID());
         return categoryEntity;
     }
 
@@ -26,10 +26,10 @@ public class ProviderConverter {
         Discount discount = new Discount();
 
         if(discountEntity != null){
-            discount.setDiscount_id(discountEntity.getDiscount_id());
-            discount.setPercentage_discount(discountEntity.getPercentage_discount());
-            discount.setStart_date(discountEntity.getStart_date());
-            discount.setEnd_date(discountEntity.getEnd_date());
+            discount.setDiscountID(discountEntity.getDiscountID());
+            discount.setPercentageDiscount(discountEntity.getPercentageDiscount());
+            discount.setStartDate(discountEntity.getStartDate());
+            discount.setEndDate(discountEntity.getEndDate());
         }
 
         return discount;
@@ -37,55 +37,55 @@ public class ProviderConverter {
 
     public DiscountEntity discountModelToDiscountEntity(Discount discount){
         DiscountEntity discountEntity = new DiscountEntity();
-        discountEntity.setDiscount_id(discount.getDiscount_id());
-        discountEntity.setPercentage_discount(discount.getPercentage_discount());
-        discountEntity.setStart_date(discount.getStart_date());
-        discountEntity.setEnd_date(discount.getEnd_date());
+        discountEntity.setDiscountID(discount.getDiscountID());
+        discountEntity.setPercentageDiscount(discount.getPercentageDiscount());
+        discountEntity.setStartDate(discount.getStartDate());
+        discountEntity.setEndDate(discount.getEndDate());
         return discountEntity;
     }
 
     //GAME
     public GameEntity gameModelToGameEntity(Game game){
         GameEntity gameEntity = new GameEntity();
-        gameEntity.setGame_id(game.getGameId());
+        gameEntity.setGameID(game.getGameID());
         gameEntity.setName(game.getName());
         gameEntity.setDescription(game.getDescription());
         gameEntity.setPrice(game.getPrice());
         gameEntity.setCategory(categoryModelToCategoryEntity(game.getCategory()));
         gameEntity.setDiscount(discountModelToDiscountEntity(game.getDiscount()));
         gameEntity.setImage(game.getImage());
-        gameEntity.setMinimum_age(game.getMinimum_age());
-        gameEntity.setMinimum_number_players(game.getMinimum_number_players());
-        gameEntity.setMaximum_number_players(game.getMaximum_number_players());
+        gameEntity.setMinimumAge(game.getMinimumAge());
+        gameEntity.setMinimumNumberPlayers(game.getMinimumNumberPlayers());
+        gameEntity.setMaximumNumberPlayers(game.getMaximumNumberPlayers());
 
         return gameEntity;
     }
 
     public Game gameEntityToGameModel(GameEntity gameEntity){
         Game game = new Game();
-        game.setGame_id(gameEntity.getGame_id());
+        game.setGameID(gameEntity.getGameID());
         game.setName(gameEntity.getName());
         game.setDescription(gameEntity.getDescription());
         game.setPrice(gameEntity.getPrice());
         game.setCategory(categoryEntityToCategoryModel(gameEntity.getCategory()));
         game.setDiscount(discountEntityToDiscountModel(gameEntity.getDiscount()));
         game.setImage(gameEntity.getImage());
-        game.setMinimum_age(gameEntity.getMinimum_age());
-        game.setMinimum_number_players(gameEntity.getMinimum_number_players());
-        game.setMaximum_number_players(gameEntity.getMaximum_number_players());
+        game.setMinimumAge(gameEntity.getMinimumAge());
+        game.setMinimumNumberPlayers(gameEntity.getMinimumNumberPlayers());
+        game.setMaximumNumberPlayers(gameEntity.getMaximumNumberPlayers());
         return game;
     }
 
     // CUSTOMER
     public CustomerEntity customerModelToCustomerEntity(Customer customer){
         CustomerEntity customerEntity = new CustomerEntity();
-        customerEntity.setCustomerId(customer.getCustomer_id());
+        customerEntity.setCustomerID(customer.getCustomerID());
         customerEntity.setFirstName(customer.getFirstName());
         customerEntity.setLastName(customer.getLastName());
         customerEntity.setUsername(customer.getUsername());
         customerEntity.setEmail(customer.getEmail());
         customerEntity.setPassword(customer.getPassword());
-        customerEntity.setPhoneNumber(customer.getPhone_number());
+        customerEntity.setPhoneNumber(customer.getPhoneNumber());
         customerEntity.setAddress(customer.getAddress());
         customerEntity.setStatut(customer.getStatut());
         customerEntity.setAuthorities(customer.getAuthorities().toString());
@@ -98,20 +98,20 @@ public class ProviderConverter {
 
     public Customer customerEntityToCustomerModel(CustomerEntity customerEntity) {
         Customer customer = new Customer();
-        customer.setCustomer_id(customerEntity.getCustomerId());
+        customer.setCustomerID(customerEntity.getCustomerID());
         customer.setFirstName(customerEntity.getFirstName());
         customer.setLastName(customerEntity.getLastName());
         customer.setUsername(customerEntity.getUsername());
         customer.setEmail(customerEntity.getEmail());
         customer.setPassword(customerEntity.getPassword());
-        customer.setPhone_number(customerEntity.getPhoneNumber());
+        customer.setPhoneNumber(customerEntity.getPhoneNumber());
         customer.setAddress(customerEntity.getAddress());
         customer.setStatut(customerEntity.getStatut());
         customer.setAuthorities(customerEntity.getAuthorities());
-        customer.setCredentials_non_expired(customerEntity.getCredentialsNonExpired());
+        customer.setCredentialsNonExpired(customerEntity.getCredentialsNonExpired());
         customer.setEnabled(customerEntity.getEnabled());
-        customer.setAccount_non_locked(customerEntity.getNonLocked());
-        customer.setAccount_non_expired(customerEntity.getAccountNonExpired());
+        customer.setAccountNonLocked(customerEntity.getNonLocked());
+        customer.setAccountNonExpired(customerEntity.getAccountNonExpired());
         return customer;
     }
 
@@ -119,18 +119,18 @@ public class ProviderConverter {
     //ORDER
         public OrderEntity orderModelToOrderEntity(Order order){
             OrderEntity orderEntity = new OrderEntity();
-            orderEntity.setOrder_id(order.getOrder_id());
-            orderEntity.setOrder_date(order.getOrder_date());
-            orderEntity.setOrderPaid(order.getIs_order_paid());
+            orderEntity.setOrderID(order.getOrderID());
+            orderEntity.setOrderDate(order.getOrderDate());
+            orderEntity.setOrderPaid(order.isOrderPaid());
             orderEntity.setCustomer(customerModelToCustomerEntity(order.getCustomer()));
             return orderEntity;
         }
 
         public Order orderEntityToOrderModel(OrderEntity orderEntity){
             Order order = new Order();
-            order.setOrder_id(orderEntity.getOrder_id());
-            order.setOrder_date(orderEntity.getOrder_date());
-            order.setIs_order_paid(order.getIs_order_paid());
+            order.setOrderID(orderEntity.getOrderID());
+            order.setOrderDate(orderEntity.getOrderDate());
+            order.setOrderPaid(order.isOrderPaid());
             order.setCustomer(customerEntityToCustomerModel(orderEntity.getCustomer()));
             return order;
 
@@ -140,8 +140,8 @@ public class ProviderConverter {
 
         public OrderLineEntity orderLineModelToOrderLineEntity(OrderLine orderLine){
             OrderLineEntity orderLineEntity = new OrderLineEntity();
-            orderLineEntity.setOrder_line_id(orderLine.getOrder_line_id());
-            orderLineEntity.setReal_price(orderLine.getReal_price());
+            orderLineEntity.setOrderLineID(orderLine.getOrderLineID());
+            orderLineEntity.setRealPrice(orderLine.getRealPrice());
             orderLineEntity.setQuantity(orderLine.getQuantity());
             orderLineEntity.setOrder(orderModelToOrderEntity(orderLine.getOrder()));
             orderLineEntity.setGame(gameModelToGameEntity(orderLine.getGame()));
@@ -150,8 +150,8 @@ public class ProviderConverter {
 
         public OrderLine orderLineEntityToOrderLineModel(OrderLineEntity orderLineEntity){
             OrderLine orderLine = new OrderLine();
-            orderLine.setOrder_line_id(orderLineEntity.getOrder_line_id());
-            orderLine.setReal_price(orderLineEntity.getReal_price());
+            orderLine.setOrderLineID(orderLineEntity.getOrderLineID());
+            orderLine.setRealPrice(orderLineEntity.getRealPrice());
             orderLine.setQuantity(orderLineEntity.getQuantity());
             orderLine.setOrder(orderEntityToOrderModel(orderLineEntity.getOrder()));
             orderLine.setGame(gameEntityToGameModel(orderLineEntity.getGame()));
@@ -163,13 +163,13 @@ public class ProviderConverter {
 
         public Language languageEntityToLanguageModel(LanguageEntity languageEntity){
             Language language = new Language();
-            language.setLanguage_id(languageEntity.getLanguage_id());
+            language.setLanguageID(languageEntity.getLanguageID());
             return language;
         }
 
         public LanguageEntity languageModelToLanguageEntity(Language language){
             LanguageEntity languageEntity = new LanguageEntity();
-            languageEntity.setLanguage_id(language.getLanguage_id());
+            languageEntity.setLanguageID(language.getLanguageID());
             return languageEntity;
         }
 
@@ -177,7 +177,7 @@ public class ProviderConverter {
 
         public Translation translationEntityToTranslationModel(TranslationEntity translationEntity){
             Translation translation = new Translation();
-            translation.setTranslation_id(translationEntity.getTranslation_id());
+            translation.setTranslationID(translationEntity.getTranslationID());
             translation.setLabel(translationEntity.getLabel());
             translation.setLanguage(languageEntityToLanguageModel(translationEntity.getLanguage()));
             translation.setCategory(categoryEntityToCategoryModel(translationEntity.getCategory()));
@@ -186,7 +186,7 @@ public class ProviderConverter {
 
         public TranslationEntity translationModelToTranslationEntity(Translation translation){
             TranslationEntity translationEntity = new TranslationEntity();
-            translationEntity.setTranslation_id(translation.getTranslation_id());
+            translationEntity.setTranslationID(translation.getTranslationID());
             translationEntity.setLabel(translation.getLabel());
             translationEntity.setCategory(categoryModelToCategoryEntity(translation.getCategory()));
             translationEntity.setLanguage(languageModelToLanguageEntity(translation.getLanguage()));

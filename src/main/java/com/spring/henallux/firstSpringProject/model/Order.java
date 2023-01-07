@@ -7,51 +7,53 @@ public class Order {
 
     @NotNull
     @Min(value = 1)
-    private Integer order_id;
+    private Integer orderID;
+
+    @FutureOrPresent
+    @NotNull
+    private Date orderDate;
 
     @NotNull
-    private Date order_date;
-    @NotNull
-    private Boolean is_order_paid;
+    private Boolean isOrderPaid;
 
     private Customer customer;
 
     public Order() {
     }
 
-    public Order(Integer order_id, Date order_date, Boolean is_order_paid, Customer customer) {
-        setOrder_id(order_id);
-        setOrder_date(order_date);
-        setIs_order_paid(is_order_paid);
+    public Order(Integer orderID, Date orderDate, Boolean is_order_paid, Customer customer) {
+        setOrderID(orderID);
+        setOrderDate(orderDate);
+        setOrderPaid(is_order_paid);
         setCustomer(customer);
     }
 
-    public Integer getOrder_id() {
-        return order_id;
+    public Integer getOrderID() {
+        return orderID;
     }
 
-    public Date getOrder_date() {
-        return order_date;
+    public Date getOrderDate() {
+        return orderDate;
     }
 
-    public Boolean getIs_order_paid() {
-        return is_order_paid;
+    public Boolean isOrderPaid() {
+        return isOrderPaid;
     }
 
     public Customer getCustomer() {
         return customer;
     }
 
-    public void setOrder_id(Integer order_id) {
-        this.order_id = order_id;
+    public void setOrderID(Integer orderID) {
+        this.orderID = orderID;
     }
 
-    public void setOrder_date(Date order_date) {
-        this.order_date = order_date;
+    public void setOrderDate(Date orderDate) {
+        this.orderDate = orderDate;
     }
 
-    public void setIs_order_paid(Boolean is_order_paid) {
-        this.is_order_paid = is_order_paid;
+    public void setOrderPaid(Boolean isOrderPaid) {
+        this.isOrderPaid = isOrderPaid;
     }
 
     public void setCustomer(Customer customer) {

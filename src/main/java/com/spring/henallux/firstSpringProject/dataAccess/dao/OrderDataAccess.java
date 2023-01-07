@@ -5,6 +5,6 @@ import com.spring.henallux.firstSpringProject.model.Order;
 public interface OrderDataAccess {
 
     Order save (Order order);
-    void setOrderPaid(Integer order_id);
+    void setOrderPaid(Integer orderID);
 
 }

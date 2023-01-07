@@ -33,8 +33,8 @@ public class GameDAO implements GameDataAccess {
         return games;
     }
 
-    public ArrayList<Game> getAllGamesByCategoryId(Integer category_id){
-        List<GameEntity> gameEntities = gameRepository.findByCategoryCategoryId(category_id);
+    public ArrayList<Game> getAllGamesByCategoryID(Integer categoryID){
+        List<GameEntity> gameEntities = gameRepository.findByCategoryCategoryID(categoryID);
         ArrayList<Game> games = new ArrayList<>();
         for (GameEntity entity : gameEntities) {
             Game game = providerConverter.gameEntityToGameModel(entity);
@@ -43,8 +43,8 @@ public class GameDAO implements GameDataAccess {
         return games;
     }
 
-    public Game getGameById(Integer game_id){
-        GameEntity gameEntity = gameRepository.findById(game_id).orElse(null);
+    public Game getGameByID(Integer gameID){
+        GameEntity gameEntity = gameRepository.findById(gameID).orElse(null);
         if(gameEntity != null){
             Game game = providerConverter.gameEntityToGameModel(gameEntity);
             return game;

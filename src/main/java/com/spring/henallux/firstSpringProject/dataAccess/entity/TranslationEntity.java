@@ -11,7 +11,7 @@ public class TranslationEntity {
 
     @Id
     @Column(name="translation_id")
-    private Integer translation_id;
+    private Integer translationID;
 
     @Column(name="label")
     private String label;
@@ -27,8 +27,8 @@ public class TranslationEntity {
     public TranslationEntity() {
     }
 
-    public Integer getTranslation_id() {
-        return translation_id;
+    public Integer getTranslationID() {
+        return translationID;
     }
 
     public String getLabel() {
@@ -43,8 +43,8 @@ public class TranslationEntity {
         return category;
     }
 
-    public void setTranslation_id(Integer translation_id) {
-        this.translation_id = translation_id;
+    public void setTranslationID(Integer translationID) {
+        this.translationID = translationID;
     }
 
     public void setLabel(String label) {

@@ -24,29 +24,29 @@ class DiscountServiceTest {
         Game game = new Game();
         Discount discount = new Discount();
 
-        discount.setDiscount_id(1);
-        discount.setPercentage_discount(20F);
+        discount.setDiscountID(1);
+        discount.setPercentageDiscount(20F);
 
         GregorianCalendar startDate = new GregorianCalendar(2022-1900, 12-1, 1, 0, 0, 1);
 
-        discount.setStart_date(startDate.getTime());
+        discount.setStartDate(startDate.getTime());
 
         // GregorianCalendar 2023-02-25 23:59:59
         GregorianCalendar endDate = new GregorianCalendar(2023-1900, 2-1, 25, 23, 59, 59);
 
-        discount.setEnd_date(endDate.getTime());
+        discount.setEndDate(endDate.getTime());
 
         game.setName("Secret Identity");
         game.setDescription("Infiltre toi comme un vrai espion");
         game.setPrice(30F);
 
         game.setCategory(new Category());
-        game.getCategory().setCategory_id(1);
+        game.getCategory().setCategoryID(1);
         game.setDiscount(discount);
         game.setImage("games/categorie-dessin/jeu4.jpg");
-        game.setMinimum_age(4);
-        game.setMinimum_number_players(4);
-        game.setMaximum_number_players(6);
+        game.setMinimumAge(4);
+        game.setMinimumNumberPlayers(4);
+        game.setMaximumNumberPlayers(6);
 
         Float expectedResult = 24F;
 

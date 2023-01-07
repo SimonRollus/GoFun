@@ -5,23 +5,23 @@ public class Language {
 
     @NotNull
     @Min(value = 1)
-    private Integer language_id;
+    private Integer languageID;
 
     private String locale;
 
     public Language() {
     }
 
-    public Integer getLanguage_id() {
-        return language_id;
+    public Integer getLanguageID() {
+        return languageID;
     }
 
     public String getLocale() {
         return locale;
     }
 
-    public void setLanguage_id(Integer language_id) {
-        this.language_id = language_id;
+    public void setLanguageID(Integer languageID) {
+        this.languageID = languageID;
     }
 
     public void setLocale(String locale) {

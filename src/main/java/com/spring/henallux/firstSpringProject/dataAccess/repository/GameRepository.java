@@ -10,6 +10,6 @@ import java.util.ArrayList;
 
 @Repository
 public interface GameRepository extends JpaRepository<GameEntity, Integer> {
-    @Query("SELECT game FROM GameEntity game WHERE game.category.category_id = ?1")
-    ArrayList<GameEntity> findByCategoryCategoryId(Integer category_id);
+    @Query("SELECT game FROM GameEntity game WHERE game.category.categoryID = ?1")
+    ArrayList<GameEntity> findByCategoryCategoryID(Integer categoryID);
 }

@@ -36,8 +36,8 @@ public class GameDescriptionController {
     @RequestMapping(value = "{id}",method = RequestMethod.GET)
     public String gameDescription(Model model, @PathVariable Integer id, Locale locale){
         ArrayList<Translation> categoriesTranslations = translationService.getCategoriesTranslation(locale.getLanguage());
-        Game game = gameService.getGameById(id);
-        game.setPrice_with_discount(discountService.getPriceOnDiscount(game));
+        Game game = gameService.getGameByID(id);
+        game.setPriceWithDiscount(discountService.getPriceOnDiscount(game));
         model.addAttribute("cartItem",new CartItem());
         model.addAttribute("game",game);
         model.addAttribute("categories", categoriesTranslations);

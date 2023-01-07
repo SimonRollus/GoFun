@@ -16,7 +16,7 @@
         <c:forEach items="${ cart.getGames() }" var="cart" varStatus="status">
             <input type="hidden" name="quantity_${status.count}" value="${cart.value.getQuantity()}" />
             <input type="hidden" name="item_name_${status.count}" value="${cart.value.getGame().getName()}" />
-            <input type="hidden" name="amount_${status.count}" value="${cart.value.getReal_price()}" />
+            <input type="hidden" name="amount_${status.count}" value="${cart.value.getRealPrice()}" />
         </c:forEach>
         <input type="hidden" name="return" value="http://localhost:8082/boardgame/cart/paymentSuccess" />
         <input type="hidden" name="cancel_return" value="http://localhost:8082/boardgame/cart/paymentFailed" />

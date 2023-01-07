@@ -4,7 +4,7 @@ public class Game {
 
     @NotNull
     @Min(value = 1)
-    private Integer game_id;
+    private Integer gameID;
 
     @NotNull
     @Size(min = 5, max = 50)
@@ -21,21 +21,21 @@ public class Game {
 
     private String image;
 
-    private Integer minimum_age;
+    private Integer minimumAge;
 
-    private Integer minimum_number_players;
+    private Integer minimumNumberPlayers;
 
-    private Integer maximum_number_players;
+    private Integer maximumNumberPlayers;
 
-    private Float price_with_discount;
+    private Float priceWithDiscount;
 
 
     public Game() {
     }
 
     // GETTERS
-    public Integer getGameId() {
-        return game_id;
+    public Integer getGameID() {
+        return gameID;
     }
     public String getName() {
         return name;
@@ -57,31 +57,31 @@ public class Game {
         return image;
     }
 
-    public Integer getMinimum_age() {
-        return minimum_age;
+    public Integer getMinimumAge() {
+        return minimumAge;
     }
 
-    public Integer getMinimum_number_players() {
-        return minimum_number_players;
+    public Integer getMinimumNumberPlayers() {
+        return minimumNumberPlayers;
     }
 
-    public Integer getMaximum_number_players() {
-        return maximum_number_players;
+    public Integer getMaximumNumberPlayers() {
+        return maximumNumberPlayers;
     }
 
-    public Float getPrice_with_discount() {
-        return price_with_discount;
+    public Float getPriceWithDiscount() {
+        return priceWithDiscount;
     }
 
     public boolean isOnDiscount(){
-        return !this.price.equals(this.price_with_discount);
+        return !this.price.equals(this.priceWithDiscount);
     }
 
     //SETTERS
 
 
-    public void setGame_id(Integer game_id) {
-        this.game_id = game_id;
+    public void setGameID(Integer gameID) {
+        this.gameID = gameID;
     }
 
     public void setName(String name) {
@@ -104,37 +104,37 @@ public class Game {
         this.image = image;
     }
 
-    public void setMinimum_age(Integer minimum_age) {
-        this.minimum_age = minimum_age;
+    public void setMinimumAge(Integer minimumAge) {
+        this.minimumAge = minimumAge;
     }
 
-    public void setMinimum_number_players(Integer minimum_number_players) {
-        this.minimum_number_players = minimum_number_players;
+    public void setMinimumNumberPlayers(Integer minimumNumberPlayers) {
+        this.minimumNumberPlayers = minimumNumberPlayers;
     }
 
-    public void setMaximum_number_players(Integer maximum_number_players) {
-        this.maximum_number_players = maximum_number_players;
+    public void setMaximumNumberPlayers(Integer maximumNumberPlayers) {
+        this.maximumNumberPlayers = maximumNumberPlayers;
     }
 
-    public void setPrice_with_discount(Float price_with_discount) {
-        this.price_with_discount = price_with_discount;
+    public void setPriceWithDiscount(Float priceWithDiscount) {
+        this.priceWithDiscount = priceWithDiscount;
     }
 
     // toString
     @Override
     public String toString() {
         return "Game{" +
-                "game_id=" + game_id +
+                "gameID=" + gameID +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +
                 ", discount=" + discount +
                 ", category=" + category +
                 ", image='" + image + '\'' +
-                ", minimum_age=" + minimum_age +
-                ", minimum_number_players=" + minimum_number_players +
-                ", maximum_number_players=" + maximum_number_players +
-                ", price_with_discount=" + price_with_discount +
+                ", minimumAge=" + minimumAge +
+                ", minimumNumberPlayers=" + minimumNumberPlayers +
+                ", maximumNumberPlayers=" + maximumNumberPlayers +
+                ", priceWithDiscount=" + priceWithDiscount +
                 '}';
     }
 }

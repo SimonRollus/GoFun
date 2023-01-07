@@ -53,15 +53,15 @@ public class CartController {
     @RequestMapping(value="/send", method=RequestMethod.POST)
     public String getFormData(@ModelAttribute(value="cartItem") CartItem cartItem, @ModelAttribute(value=Constants.CURRENT_CART) Cart cart, HttpServletRequest request){
         if(cartItem.getQuantity() > 0){
-            Game game = gameService.getGameById(cartItem.getGame_id());
+            Game game = gameService.getGameByID(cartItem.getGameID());
             Float priceAfterDiscount = discountService.getPriceOnDiscount(game);
             game.setPrice(priceAfterDiscount);
             OrderLine orderLine = new OrderLine(null, priceAfterDiscount, cartItem.getQuantity(), null, game);
-            if(cart.getGames().containsKey(game.getGameId())){
-                Integer oldQuantity = cart.getGames().get(game.getGameId()).getQuantity();
-                cart.getGames().get(game.getGameId()).setQuantity(cartItem.getQuantity()+oldQuantity); //ajoute la nouvelle quantité à l'ancienne
+            if(cart.getGames().containsKey(game.getGameID())){
+                Integer oldQuantity = cart.getGames().get(game.getGameID()).getQuantity();
+                cart.getGames().get(game.getGameID()).setQuantity(cartItem.getQuantity()+oldQuantity); //ajoute la nouvelle quantité à l'ancienne
             }else{
-                cart.addGame(game.getGameId(), orderLine);
+                cart.addGame(game.getGameID(), orderLine);
             }
             return "redirect:/cart";
         }else{
@@ -72,7 +72,7 @@ public class CartController {
     @RequestMapping(value="/quantityUpdate", method=RequestMethod.POST)
     public String updateGameQuantity(@ModelAttribute(value="cartItem") CartItem cartItem, @ModelAttribute(value=Constants.CURRENT_CART) Cart cart, HttpServletRequest request){
         if(cartItem.getQuantity() > 0){
-            cart.getGames().get(cartItem.getGame_id()).setQuantity(cartItem.getQuantity());
+            cart.getGames().get(cartItem.getGameID()).setQuantity(cartItem.getQuantity());
             return "redirect:/cart";
         }else{
             return Optional.ofNullable(request.getHeader("Referer")).map(requestUrl -> "redirect:" + requestUrl).orElse("/"); //redirige vers la page si possible sinon vers l'accueil
@@ -81,7 +81,7 @@ public class CartController {
 
     @RequestMapping(value="/removeItem", method=RequestMethod.POST)
     public String removeItem(@ModelAttribute(value="cartItem") CartItem cartItem, @ModelAttribute(value=Constants.CURRENT_CART) Cart cart){
-        cart.getGames().remove(cartItem.getGame_id());
+        cart.getGames().remove(cartItem.getGameID());
         return "redirect:/cart";
     }
 
@@ -96,7 +96,7 @@ public class CartController {
         if(orderFromSession == null){
             session.setAttribute("currentOrder", order);
         }else{
-            if(!orderFromSession.getOrder_id().equals(order.getOrder_id())){
+            if(!orderFromSession.getOrderID().equals(order.getOrderID())){
                 session.removeAttribute("currentOrder");
                 session.setAttribute("currentOrder", order);
             }
@@ -109,7 +109,7 @@ public class CartController {
         cart.getGames().clear();
         Order order = (Order) session.getAttribute("currentOrder");
         if(order != null){
-            purchaseService.modifyOrderToPaid(order.getOrder_id()); //pas sécurisé avec ce système car l'utilisateur peut revenir sur ce lien sans payer et sa commande sera marquée comme payée
+            purchaseService.modifyOrderToPaid(order.getOrderID()); //pas sécurisé avec ce système car l'utilisateur peut revenir sur ce lien sans payer et sa commande sera marquée comme payée
         }
         return "redirect:/home";
     }

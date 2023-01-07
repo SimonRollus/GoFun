@@ -38,7 +38,7 @@ public class WelcomeController {
     public String home (Model model, Locale locale) {
         ArrayList<Translation> categoriesTranslations = translationService.getCategoriesTranslation(locale.getLanguage());
         ArrayList<Game> games = gameService.getAllGames();
-        games.forEach(game -> game.setPrice_with_discount(discountService.getPriceOnDiscount(game)));
+        games.forEach(game -> game.setPriceWithDiscount(discountService.getPriceOnDiscount(game)));
         model.addAttribute("games", games);
         model.addAttribute("categories", categoriesTranslations);
         return "integrated:home";

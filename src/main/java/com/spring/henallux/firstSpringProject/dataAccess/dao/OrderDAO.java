@@ -28,8 +28,8 @@ public class OrderDAO implements OrderDataAccess {
     }
 
     @Transactional
-    public void setOrderPaid(Integer order_id){
-        orderRepository.setOrderPaid(order_id);
+    public void setOrderPaid(Integer orderID){
+        orderRepository.setOrderPaid(orderID);
     }
 
 

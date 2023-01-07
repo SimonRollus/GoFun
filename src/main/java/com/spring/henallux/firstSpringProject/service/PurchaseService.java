@@ -41,8 +41,8 @@ public class PurchaseService {
 
     }
 
-    public void modifyOrderToPaid(Integer order_id){
-        orderDAO.setOrderPaid(order_id);
+    public void modifyOrderToPaid(Integer orderID){
+        orderDAO.setOrderPaid(orderID);
     }
 
 

@@ -9,10 +9,10 @@ public class OrderLineEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="order_line_id")
-    private Integer order_line_id;
+    private Integer orderLineID;
 
     @Column(name="real_price")
-    private Float real_price;
+    private Float realPrice;
 
     @Column(name="quantity")
     private Integer quantity;
@@ -28,12 +28,12 @@ public class OrderLineEntity {
     public OrderLineEntity() {
     }
 
-    public Integer getOrder_line_id() {
-        return order_line_id;
+    public Integer getOrderLineID() {
+        return orderLineID;
     }
 
-    public Float getReal_price() {
-        return real_price;
+    public Float getRealPrice() {
+        return realPrice;
     }
 
     public Integer getQuantity() {
@@ -48,12 +48,12 @@ public class OrderLineEntity {
         return game;
     }
 
-    public void setOrder_line_id(Integer order_line_id) {
-        this.order_line_id = order_line_id;
+    public void setOrderLineID(Integer orderLineID) {
+        this.orderLineID = orderLineID;
     }
 
-    public void setReal_price(Float real_price) {
-        this.real_price = real_price;
+    public void setRealPrice(Float realPrice) {
+        this.realPrice = realPrice;
     }
 
     public void setQuantity(Integer quantity) {

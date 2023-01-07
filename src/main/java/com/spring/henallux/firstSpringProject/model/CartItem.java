@@ -12,7 +12,7 @@ public class CartItem {
 
     @NotNull
     @Min(value = 1)
-    private Integer game_id;
+    private Integer gameID;
 
     public CartItem() {
     }
@@ -21,15 +21,15 @@ public class CartItem {
         return quantity;
     }
 
-    public Integer getGame_id() {
-        return game_id;
+    public Integer getGameID() {
+        return gameID;
     }
 
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
 
-    public void setGame_id(Integer game_id) {
-        this.game_id = game_id;
+    public void setGameID(Integer gameID) {
+        this.gameID = gameID;
     }
 }

@@ -16,7 +16,7 @@ public class DiscountService {
 
     public Float getPriceOnDiscount(Game game){
         if(isDiscountAvailable(game.getDiscount())){
-            return game.getPrice() - (game.getPrice() * game.getDiscount().getPercentage_discount()/100);
+            return game.getPrice() - (game.getPrice() * game.getDiscount().getPercentageDiscount()/100);
         } else {
             return game.getPrice();
         }
@@ -24,7 +24,7 @@ public class DiscountService {
 
     // Vérifier les dates ?
     private boolean isDiscountAvailable(Discount discount){
-        if(discount.getDiscount_id() != null && discount.getPercentage_discount() > 0 && discount.getPercentage_discount() <= 100){ //ex: 20 -> 20% de réduction
+        if(discount.getDiscountID() != null && discount.getPercentageDiscount() > 0 && discount.getPercentageDiscount() <= 100){ //ex: 20 -> 20% de réduction
             return true;
         }
         return false;

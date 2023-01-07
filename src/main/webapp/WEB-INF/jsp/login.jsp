@@ -1,10 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="include/importTags.jsp"%>
 
-<html>
-<head>
-</head>
-<body>
+
 <div class="flex  items-center justify-center mt-6 py-12 px-4 sm:px-6 lg:px-8">
   <form:form id="connection"
              method="POST"
@@ -40,9 +37,7 @@
       </div>
       <c:catch var="errorLogin">
             <span>${errorLogin}</span>
-        </c:catch>
+      </c:catch>
     </form:form>
   </div>
 </div>
-</body>
-</html>

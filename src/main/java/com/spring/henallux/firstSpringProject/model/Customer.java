@@ -1,6 +1,7 @@
 package com.spring.henallux.firstSpringProject.model;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.Transient;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -11,34 +12,35 @@ import java.util.Collection;
 import java.util.List;
 
 public class Customer implements UserDetails {
-    @Min(value = 1)
-    private Integer customer_id;
 
-    @NotNull
-    @NotEmpty
+    @Min(value = 1)
+    private Integer customerID;
+
+    @NotEmpty(message="Not empty firstName !")
     @Size(min = 2, max = 50)
     private String firstName;
 
-    @NotNull
+    @NotEmpty(message="Not empty lastName!")
     @Size(min = 2, max = 50)
     private String lastName;
 
-    @NotNull
+    @NotEmpty (message="Not empty username!")
     @Size(min = 5, max = 50)
     private String username;
-    @NotNull
-    @Email
+
+    @NotEmpty (message="Not empty password!")
+    @Email (message="Not valid email!")
     private String email;
 
-    @NotNull
+    @NotEmpty (message="Not empty password!")
     @Size(min = 5, max = 50)
     private String password;
 
-    @NotNull
+    @NotEmpty
     @Size(max = 15)
-    private String phone_number;
+    private String phoneNumber;
 
-    @NotNull
+    @NotEmpty
     @Size(min = 5, max = 50)
     private String address;
 
@@ -46,22 +48,21 @@ public class Customer implements UserDetails {
 
     private String authorities;
 
-    private Boolean credentials_non_expired;
+    private Boolean credentialsNonExpired;
 
     private Boolean enabled;
 
-    private Boolean account_non_locked;
+    private Boolean accountNonLocked;
 
-    private Boolean account_non_expired;
-
+    private Boolean accountNonExpired;
 
     public Customer() {
     }
 
 
 
-    public Integer getCustomer_id() {
-        return customer_id;
+    public Integer getCustomerID() {
+        return customerID;
     }
 
     public String getFirstName() {
@@ -85,8 +86,8 @@ public class Customer implements UserDetails {
     }
 
 
-    public String getPhone_number() {
-        return phone_number;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
     public String getAddress() {
@@ -115,7 +116,7 @@ public class Customer implements UserDetails {
     }
 
     public boolean isCredentialsNonExpired() {
-        return credentials_non_expired;
+        return credentialsNonExpired;
     }
 
     public boolean isEnabled() {
@@ -123,15 +124,15 @@ public class Customer implements UserDetails {
     }
 
     public boolean isAccountNonLocked() {
-        return account_non_locked;
+        return accountNonLocked;
     }
 
     public boolean isAccountNonExpired() {
-        return account_non_expired;
+        return accountNonExpired;
     }
 
-    public void setCustomer_id(Integer customer_id) {
-        this.customer_id = customer_id;
+    public void setCustomerID(Integer customerID) {
+        this.customerID = customerID;
     }
 
     public void setFirstName(String firstName) {
@@ -153,10 +154,9 @@ public class Customer implements UserDetails {
     public void setPassword(String password) {
         this.password = password;
     }
-
-
-    public void setPhone_number(String phone_number) {
-        this.phone_number = phone_number;
+    
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public void setAddress(String address) {
@@ -171,19 +171,28 @@ public class Customer implements UserDetails {
         this.authorities = authorities;
     }
 
-    public void setCredentials_non_expired(Boolean credentials_non_expired) {
-        this.credentials_non_expired = credentials_non_expired;
+    public void setCredentialsNonExpired(Boolean credentialsNonExpired) {
+        this.credentialsNonExpired = credentialsNonExpired;
     }
 
     public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
     }
 
-    public void setAccount_non_locked(Boolean account_non_locked) {
-        this.account_non_locked = account_non_locked;
+    public void setAccountNonLocked(Boolean accountNonLocked) {
+        this.accountNonLocked = accountNonLocked;
     }
 
-    public void setAccount_non_expired(Boolean account_non_expired) {
-        this.account_non_expired = account_non_expired;
+    public void setAccountNonExpired(Boolean accountNonExpired) {
+        this.accountNonExpired = accountNonExpired;
+    }
+
+    // ToString
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "customerID=" + customerID +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'';
     }
 }

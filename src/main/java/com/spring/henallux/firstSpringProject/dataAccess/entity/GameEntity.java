@@ -8,7 +8,7 @@ import javax.persistence.*;
 public class GameEntity {
     @Id
     @Column(name = "game_id")
-    private Integer game_id;
+    private Integer gameID;
 
     @Column(name = "name")
     private String name;
@@ -32,23 +32,23 @@ public class GameEntity {
     private String image;
 
     @Column(name = "minimum_age")
-    private Integer minimum_age;
+    private Integer minimumAge;
 
     @Column(name="minimum_number_players")
-    private Integer minimum_number_players;
+    private Integer minimumNumberPlayers;
 
     @Column(name="maximum_number_players")
-    private Integer maximum_number_players;
+    private Integer maximumNumberPlayers;
 
     public GameEntity() {
     }
 
-    public Integer getGame_id() {
-        return game_id;
+    public Integer getGameID() {
+        return gameID;
     }
 
-    public void setGame_id(Integer game_id) {
-        this.game_id = game_id;
+    public void setGameID(Integer gameID) {
+        this.gameID = gameID;
     }
 
     public String getName() {
@@ -99,27 +99,27 @@ public class GameEntity {
         this.image = image;
     }
 
-    public Integer getMinimum_age() {
-        return minimum_age;
+    public Integer getMinimumAge() {
+        return minimumAge;
     }
 
-    public void setMinimum_age(Integer minimum_age) {
-        this.minimum_age = minimum_age;
+    public void setMinimumAge(Integer minimumAge) {
+        this.minimumAge = minimumAge;
     }
 
-    public Integer getMinimum_number_players() {
-        return minimum_number_players;
+    public Integer getMinimumNumberPlayers() {
+        return minimumNumberPlayers;
     }
 
-    public void setMinimum_number_players(Integer minimum_number_players) {
-        this.minimum_number_players = minimum_number_players;
+    public void setMinimumNumberPlayers(Integer minimumNumberPlayers) {
+        this.minimumNumberPlayers = minimumNumberPlayers;
     }
 
-    public Integer getMaximum_number_players() {
-        return maximum_number_players;
+    public Integer getMaximumNumberPlayers() {
+        return maximumNumberPlayers;
     }
 
-    public void setMaximum_number_players(Integer maximum_number_players) {
-        this.maximum_number_players = maximum_number_players;
+    public void setMaximumNumberPlayers(Integer maximumNumberPlayers) {
+        this.maximumNumberPlayers = maximumNumberPlayers;
     }
 }

@@ -41,7 +41,7 @@ public class GameDAOTest {
         ArrayList<GameEntity> mockedGameEntities = new ArrayList<>();
 
         GameEntity gameEntity = new GameEntity();
-        gameEntity.setGame_id(1);
+        gameEntity.setGameID(1);
         gameEntity.setName("Sherlock");
         gameEntity.setDescription("Suis la piste et trouve le meurtrier");
         gameEntity.setPrice(25F);
@@ -49,12 +49,12 @@ public class GameDAOTest {
         gameEntity.setDiscount(null);
 
         gameEntity.setCategory(new CategoryEntity());
-        gameEntity.getCategory().setCategory_id(1);
+        gameEntity.getCategory().setCategoryID(1);
 
         gameEntity.setImage("games/categorie-deduction/jeu2.jpg");
-        gameEntity.setMinimum_age(12);
-        gameEntity.setMinimum_number_players(2);
-        gameEntity.setMaximum_number_players(8);
+        gameEntity.setMinimumAge(12);
+        gameEntity.setMinimumNumberPlayers(2);
+        gameEntity.setMaximumNumberPlayers(8);
         mockedGameEntities.add(gameEntity);
 
         when(gameRepository.findAll()).thenReturn(mockedGameEntities);
@@ -62,7 +62,7 @@ public class GameDAOTest {
         ArrayList<Game> expectedResults = new ArrayList<>();
         Game game = new Game();
 
-        game.setGame_id(1);
+        game.setGameID(1);
         game.setName("Sherlock");
         game.setDescription("Suis la piste et trouve le meurtrier");
         game.setPrice(25F);
@@ -70,21 +70,17 @@ public class GameDAOTest {
         game.setDiscount(new Discount());
 
         game.setCategory(new Category());
-        game.getCategory().setCategory_id(1);
+        game.getCategory().setCategoryID(1);
 
         game.setImage("games/categorie-deduction/jeu2.jpg");
-        game.setMinimum_age(12);
-        game.setMinimum_number_players(2);
-        game.setMaximum_number_players(8);
+        game.setMinimumAge(12);
+        game.setMinimumNumberPlayers(2);
+        game.setMaximumNumberPlayers(8);
 
         expectedResults.add(game);
 
-        System.out.println(gameDAO.getAllGames().toString());
-
         assertThat(gameDAO.getAllGames()).usingRecursiveComparison().ignoringCollectionOrder().isEqualTo(expectedResults);
-
-
-
+        
     }
 
 }

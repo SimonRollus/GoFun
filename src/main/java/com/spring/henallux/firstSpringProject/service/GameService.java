@@ -22,12 +22,12 @@ public class GameService {
         return gameDAO.getAllGames();
     }
 
-    public Game getGameById(Integer game_id){
-        return gameDAO.getGameById(game_id);
+    public Game getGameByID(Integer gameID){
+        return gameDAO.getGameByID(gameID);
     }
 
-    public ArrayList<Game> getAllGamesByCategoryId(Integer category_id){
-        return gameDAO.getAllGamesByCategoryId(category_id);
+    public ArrayList<Game> getAllGamesByCategoryID(Integer categoryID){
+        return gameDAO.getAllGamesByCategoryID(categoryID);
     }
 
 }

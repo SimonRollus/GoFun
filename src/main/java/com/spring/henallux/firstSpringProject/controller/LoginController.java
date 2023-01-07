@@ -13,19 +13,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class LoginController {
 
 
-
     @RequestMapping(method = RequestMethod.GET)
-        public String login (Model model, @RequestParam(required = false)String error){
-        if(error != null){
+    public String login (Model model, @RequestParam(required = false)String error){
+        if(error != null)
             model.addAttribute("errorLogin","Erreur sign in");
-        }
+
         model.addAttribute("customerLogin",new Customer());
         return "integrated:login";
-        }
-
-
-
-
-
-
+    }
 }

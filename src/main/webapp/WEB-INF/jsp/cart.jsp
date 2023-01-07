@@ -1,11 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="include/importTags.jsp"%>
 
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
 <div class="relative z-10" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
     <!--
       Background backdrop, show/hide based on slide-over state.
@@ -75,7 +70,7 @@
                                                     modelAttribute="cartItem">
                                                         <form:label path="quantity"><p class="text-gray-500">Qty :</p></form:label>
                                                         <form:input type="number" min="1" max="99" value="${cart.value.getQuantity()}" path="quantity"></form:input>
-                                                        <form:input type="hidden"  value="${cart.key}" path="game_id"></form:input>
+                                                        <form:input type="hidden"  value="${cart.key}" path="gameID"></form:input>
                                                         <form:button type="submit" class="font-medium text-indigo-600 hover:text-indigo-500">Update</form:button>
                                                     </form:form>
 
@@ -85,7 +80,7 @@
                                                                modelAttribute="cartItem">
 
                                                     <div class="flex">
-                                                        <form:input type="hidden"  value="${cart.key}" path="game_id"></form:input>
+                                                        <form:input type="hidden"  value="${cart.key}" path="gameID"></form:input>
                                                         <form:button type="submit" class="font-medium text-indigo-600 hover:text-indigo-500">Remove</form:button>
                                                     </div>
                                                     </form:form>
@@ -152,6 +147,3 @@
     </div>
 </div>
 
-
-</body>
-</html>

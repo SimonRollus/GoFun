@@ -21,14 +21,14 @@ import java.util.Locale;
 @RequestMapping(value="/signup")
 @SessionAttributes({Constants.CURRENT_USER})
 
-public class SignUpController {
+public class SignupController {
 
     private CustomerService customerService;
 
     private MessageSource messageSource;
 
     @Autowired
-    public SignUpController(CustomerService customerService, MessageSource messageSource) {
+    public SignupController(CustomerService customerService, MessageSource messageSource) {
         this.customerService = customerService;
         this.messageSource = messageSource;
     }
@@ -45,18 +45,23 @@ public class SignUpController {
     }
 
     @RequestMapping (method = RequestMethod.POST)
-    public String postUser (Model model, Locale locale, @Valid @ModelAttribute(value = Constants.CURRENT_USER) Customer customer, final BindingResult errors){
-        if(!errors.hasErrors()){
-            boolean isRegistered = customerService.saveCustomer(customer);
-            if(isRegistered){
-                return "redirect:/home";
-            }else{
-                model.addAttribute("customerExists", messageSource.getMessage("customerAlreadyExist", new Object[0], locale));
-                return "integrated:signup";
-            }
+    public String postUser (Model model, @ModelAttribute(value = Constants.CURRENT_USER) @Valid Customer customer, final BindingResult errors, Locale locale){
+
+        if(errors.hasErrors()){
+            model.addAttribute("errors",errors);
+            return "integrated:signup";
         }
-        model.addAttribute("errors",errors);
-        return "integrated:signup";
+
+        boolean isRegistered = customerService.saveCustomer(customer);
+
+        if(isRegistered)
+            return "redirect:/home";
+        else{
+            model.addAttribute("customerExists", messageSource.getMessage("customerAlreadyExist", new Object[0], locale));
+            return "integrated:signup";
+        }
+
+
     }
 
 

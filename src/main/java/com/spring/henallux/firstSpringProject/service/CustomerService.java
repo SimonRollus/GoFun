@@ -25,10 +25,10 @@ public class CustomerService {
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         customer.setPassword(bCryptPasswordEncoder.encode(customer.getPassword()));
         customer.setAuthorities("ROLE_USER");
-        customer.setCredentials_non_expired(true);
+        customer.setCredentialsNonExpired(true);
         customer.setEnabled(true);
-        customer.setAccount_non_locked(true);
-        customer.setAccount_non_expired(true);
+        customer.setAccountNonLocked(true);
+        customer.setAccountNonExpired(true);
         customerDAO.save(customer);
         return true;
     }

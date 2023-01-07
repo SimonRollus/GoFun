@@ -10,7 +10,7 @@ public class CustomerEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "customer_id")
-    private Integer customerId;
+    private Integer customerID;
 
     @Column(name = "firstname")
     private String firstName;
@@ -55,8 +55,8 @@ public class CustomerEntity {
     public CustomerEntity() {
     }
 
-    public Integer getCustomerId() {
-        return customerId;
+    public Integer getCustomerID() {
+        return customerID;
     }
 
     public String getFirstName() {
@@ -111,8 +111,8 @@ public class CustomerEntity {
         return accountNonExpired;
     }
 
-    public void setCustomerId(Integer customerId) {
-        this.customerId = customerId;
+    public void setCustomerID(Integer customerID) {
+        this.customerID = customerID;
     }
 
     public void setFirstName(String firstName) {

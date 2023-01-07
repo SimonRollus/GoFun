@@ -5,7 +5,7 @@ import javax.validation.constraints.*;
 public class Translation {
     @NotNull
     @Min(value = 1)
-    private Integer translation_id;
+    private Integer translationID;
     @NotNull
     @Size(min = 5, max = 50)
     private String label;
@@ -14,8 +14,8 @@ public class Translation {
     @NotNull
     private Category category;
 
-    public Translation(Integer translation_id, String label, Language language, Category category) {
-        this.translation_id = translation_id;
+    public Translation(Integer translationID, String label, Language language, Category category) {
+        this.translationID = translationID;
         this.label = label;
         this.language = language;
         this.category = category;
@@ -24,8 +24,8 @@ public class Translation {
     public Translation() {
     }
 
-    public Integer getTranslation_id() {
-        return translation_id;
+    public Integer getTranslationID() {
+        return translationID;
     }
 
     public String getLabel() {
@@ -40,8 +40,8 @@ public class Translation {
         return category;
     }
 
-    public void setTranslation_id(Integer translation_id) {
-        this.translation_id = translation_id;
+    public void setTranslationID(Integer translationID) {
+        this.translationID = translationID;
     }
 
     public void setLabel(String label) {

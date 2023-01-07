@@ -11,10 +11,10 @@ public class OrderEntity {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="order_id")
-    private Integer order_id;
+    private Integer orderID;
 
     @Column(name = "order_date")
-    private Date order_date;
+    private Date orderDate;
 
     @Column(name = "is_order_paid")
     private Boolean isOrderPaid;
@@ -26,15 +26,15 @@ public class OrderEntity {
     public OrderEntity() {
     }
 
-    public Integer getOrder_id() {
-        return order_id;
+    public Integer getOrderID() {
+        return orderID;
     }
 
-    public Date getOrder_date() {
-        return order_date;
+    public Date getOrderDate() {
+        return orderDate;
     }
 
-    public Boolean getOrderPaid() {
+    public Boolean isOrderPaid() {
         return isOrderPaid;
     }
 
@@ -42,12 +42,12 @@ public class OrderEntity {
         return customer;
     }
 
-    public void setOrder_id(Integer order_id) {
-        this.order_id = order_id;
+    public void setOrderID(Integer orderID) {
+        this.orderID = orderID;
     }
 
-    public void setOrder_date(Date order_date) {
-        this.order_date = order_date;
+    public void setOrderDate(Date orderDate) {
+        this.orderDate = orderDate;
     }
 
     public void setOrderPaid(Boolean orderPaid) {

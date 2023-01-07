@@ -1,15 +1,14 @@
 <%@ include file="include/importTags.jsp"%>
-<html>
-<head>
-        <title>Go fun</title>
-</head>
+
+
 <div style="text-align: center">
         <a href="<spring:url value='/home'/>" class="btn btn-ghost"><spring:message code="allgames"/></a>
         <c:forEach items="${categories}" var="category">
-                <a href="<spring:url value="/category/${category.getCategory().getCategory_id()}"/>" class="btn btn-ghost">${category.getLabel()}</a>
+                <a href="<spring:url value="/category/${category.getCategory().getCategoryID()}"/>" class="btn btn-ghost">${category.getLabel()}</a>
         </c:forEach>
 </div>
-<body>
+
+
 <div class="bg-white">
         <div class="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
                 <h2 class="text-2xl font-bold tracking-tight text-gray-900"><spring:message code="allgames"/></h2>
@@ -22,7 +21,7 @@
                                 <div class="mt-4 flex justify-between">
                                         <div>
                                                 <h3 class="text-sm text-gray-700">
-                                                        <a href='<spring:url value="/game/${game.getGameId()}"/>'>
+                                                        <a href='<spring:url value="/game/${game.getGameID()}"/>'>
                                                                 <span aria-hidden="true" class="absolute inset-0"></span>
                                                                         ${game.getName()}
                                                         </a>
@@ -36,7 +35,7 @@
                                         <c:if test="${game.isOnDiscount()}">
                                                 <label class="swap">
                                                         <input type="checkbox" />
-                                                        <div class="swap-on"><p class="text-sm font-medium text-red-500">${game.getPrice_with_discount()}&euro;</p></div>
+                                                        <div class="swap-on"><p class="text-sm font-medium text-red-500">${game.getPriceWithDiscount()}&euro;</p></div>
                                                         <div class="swap-off"><p class="text-sm font-medium text-red-500 line-through">${game.getPrice()}&euro;</p></div>
                                                 </label>
                                         </c:if>
@@ -48,5 +47,4 @@
                 </div>
         </div>
 </div>
-</body>
-</html>
+

@@ -1,7 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="include/importTags.jsp"%>
 
-<html>
 <div class="bg-white py-24 sm:py-32 lg:py-20">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="sm:text-center">
@@ -20,8 +19,8 @@
                         </svg>
                     </div>
                     <div class="sm:min-w-0 sm:flex-1">
-                        <p class="text-lg font-semibold leading-8 text-gray-900">Nous garantissons les meilleurs prix</p>
-                        <p class="mt-2 text-base leading-7 text-gray-600">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.</p>
+                        <p class="text-lg font-semibold leading-8 text-gray-900"><spring:message code="cardBestPricesTitle"/></p>
+                        <p class="mt-2 text-base leading-7 text-gray-600"><spring:message code="cardBestPricesContent"/></p>
                     </div>
                 </div>
 
@@ -33,8 +32,8 @@
                         </svg>
                     </div>
                     <div class="sm:min-w-0 sm:flex-1">
-                        <p class="text-lg font-semibold leading-8 text-gray-900">Pas de frais cachés</p>
-                        <p class="mt-2 text-base leading-7 text-gray-600">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.</p>
+                        <p class="text-lg font-semibold leading-8 text-gray-900"><spring:message code="cardHiddenFeesTitle" /></p>
+                        <p class="mt-2 text-base leading-7 text-gray-600"><spring:message code="cardHiddenFeesContent"/></p>
                     </div>
                 </div>
 
@@ -46,8 +45,8 @@
                         </svg>
                     </div>
                     <div class="sm:min-w-0 sm:flex-1">
-                        <p class="text-lg font-semibold leading-8 text-gray-900">Remboursement garantis</p>
-                        <p class="mt-2 text-base leading-7 text-gray-600">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.</p>
+                        <p class="text-lg font-semibold leading-8 text-gray-900"><spring:message code="cardRefundTitle"/></p>
+                        <p class="mt-2 text-base leading-7 text-gray-600"><spring:message code="cardRefundContent"/></p>
                     </div>
                 </div>
 
@@ -59,13 +58,11 @@
                         </svg>
                     </div>
                     <div class="sm:min-w-0 sm:flex-1">
-                        <p class="text-lg font-semibold leading-8 text-gray-900">Suivez votre colis</p>
-                        <p class="mt-2 text-base leading-7 text-gray-600">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.</p>
+                        <p class="text-lg font-semibold leading-8 text-gray-900"><spring:message code="cardTrackTitle"/></p>
+                        <p class="mt-2 text-base leading-7 text-gray-600"><spring:message code="cardTrackContent"/></p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-</html>

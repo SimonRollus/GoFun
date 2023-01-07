@@ -37,9 +37,9 @@ public class GamesByCategoryController {
     @RequestMapping(value="{id}", method = RequestMethod.GET)
     public String GamesList(Model model, @PathVariable Integer id, Locale locale){
         ArrayList<Translation> categoriesTranslations = translationService.getCategoriesTranslation(locale.getLanguage());
-        ArrayList<Game> games = gameService.getAllGamesByCategoryId(id);
-        games.forEach(game -> game.setPrice_with_discount(discountService.getPriceOnDiscount(game)));
-        model.addAttribute("gamesCategoryId", games);
+        ArrayList<Game> games = gameService.getAllGamesByCategoryID(id);
+        games.forEach(game -> game.setPriceWithDiscount(discountService.getPriceOnDiscount(game)));
+        model.addAttribute("gamesCategoryID", games);
         model.addAttribute("categories", categoriesTranslations);
         return "integrated:games";
     }
